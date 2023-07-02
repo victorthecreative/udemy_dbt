@@ -4,7 +4,7 @@ sources:
   - name: sources
     database: northwind
     description: banco de dados referente a northwind
-    schaema: public
+    schema: public
 
     tables:
       - name:  categories
