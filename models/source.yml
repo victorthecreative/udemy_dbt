@@ -1,0 +1,150 @@
+version: 2
+
+sources:
+  - name: sources
+    database: northwind
+    description: banco de dados referente a northwind
+    schaema: public
+
+    tables:
+      - name:  categories
+        columns:
+          - name: category_id
+            tests:
+              - unique
+              - not_null
+          - name: category_name
+          - name: description
+      - name:  products
+        columns:
+          - name: product_id
+            tests:
+              - unique
+              - not_null
+          - name: product_name
+          - name: supplier_id
+            tests:
+              - unique
+              - not_null
+          - name: category_id
+            tests:
+              - unique
+              - not_null
+          - name: quantity_per_unit
+          - name: unit_price
+          - name: units_in_stock
+          - name: units_on_order
+          - name: reorder_level
+          - name: discontinued
+      - name:  suppliers
+        columns:
+          - name: supplier_id
+            tests:
+                - unique
+                - not_null
+          - name: company_name
+          - name: contact_name
+          - name: contact_title
+          - name: address
+          - name: city
+          - name: region
+          - name: postal_code
+          - name: country
+          - name:	phone
+          - name: fax
+          - name:	homepage
+      - name:  employees
+        columns:
+          - name: employee_id
+            tests:
+                - unique
+                - not_null
+          - name: last_name
+            tests:
+                - not_null
+          - name: first_name
+            tests:
+                - not_null
+          - name: title
+          - name: title_of_courtesy
+          - name: birth_date
+          - name: hire_date
+          - name: address
+          - name: city
+          - name: region
+          - name: postal_code
+          - name: country
+          - name: home_phone
+          - name: extension
+          - name: notes
+          - name: reports_to
+          - name: photo_path
+          - name: salary
+
+      - name:  order_details
+        columns:
+          - name: order_id
+            tests:
+                - unique
+                - not_null
+          - name: product_id
+            tests:
+                - unique
+                - not_null
+          - name: unit_price
+          - name: quantity
+          - name: discount
+      - name:  customers
+        columns:
+          - name: customer_id
+            tests:
+                - unique
+                - not_null
+          - name: company_name
+            tests:
+                - unique
+                - not_null
+          - name: contact_name
+          - name: contact_title
+          - name: address
+          - name: city
+          - name: region
+          - name: postal_code
+          - name: country
+          - name: phone
+      - name:  orders
+        columns:
+          - name: order_id
+            tests:
+                - unique
+                - not_null
+          - name: customer_id
+            tests:
+                - unique
+                - not_null
+          - name: employee_id
+            tests:
+                - unique
+                - not_null
+          - name: order_date
+          - name: required_date
+          - name: shipped_date
+          - name: ship_via
+          - name: freight
+          - name: ship_name
+          - name: ship_address
+          - name: ship_city
+          - name: ship_region
+          - name: ship_postal_code
+          - name: ship_country   
+      - name:  shippers
+        columns:
+          - name: shipper_id
+            tests:
+                - unique
+                - not_null
+          - name: company_name
+            tests:
+                - unique
+                - not_null
+          - name: phone
